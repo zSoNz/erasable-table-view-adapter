@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         let thirdSection = Section(
             cell: EmptyTableViewCell.self,
             count: 3,
-            eventHandler: { self.handle(emptyEvents: $0) }
+            eventHandler: { [weak self] in self?.handle(emptyEvents: $0) }
         )
         
         return [firstSection, secondSection, thirdSection]
