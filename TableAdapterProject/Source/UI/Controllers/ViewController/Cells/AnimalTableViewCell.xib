@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AnimalTableViewCell" customModule="TableAdapter" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AnimalTableViewCell" customModule="TableAdapterProject" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -26,17 +26,31 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <connections>
-                            <action selector="didTap:" destination="-1" eventType="touchUpInside" id="Rnu-b6-hZv"/>
+                            <action selector="didTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mYz-ae-VQo"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxo-44-vt5">
+                        <rect key="frame" x="16" y="0.0" width="258" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Q34-aC-Isf" secondAttribute="bottom" id="Dhn-k6-f4K"/>
                     <constraint firstAttribute="trailing" secondItem="Q34-aC-Isf" secondAttribute="trailing" id="Gol-mq-6yx"/>
+                    <constraint firstItem="Q34-aC-Isf" firstAttribute="leading" secondItem="Nxo-44-vt5" secondAttribute="trailing" id="HZt-3c-Nmu"/>
                     <constraint firstItem="Q34-aC-Isf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mze-jk-NX7"/>
+                    <constraint firstAttribute="bottom" secondItem="Nxo-44-vt5" secondAttribute="bottom" id="saO-0O-xer"/>
+                    <constraint firstItem="Nxo-44-vt5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="th8-XB-tRA"/>
+                    <constraint firstItem="Nxo-44-vt5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vpX-7s-lHG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="animalName" destination="Nxo-44-vt5" id="Vtc-ai-s15"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
         </tableViewCell>
     </objects>
 </document>

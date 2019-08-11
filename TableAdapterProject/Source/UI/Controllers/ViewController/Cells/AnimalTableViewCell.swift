@@ -17,8 +17,10 @@ enum AnimalTableViewCellEvents {
 
 class AnimalTableViewCell: BaseCell<Animal, AnimalTableViewCellEvents> {
     
+    @IBOutlet var animalName: UILabel?
+    
     override func fill(with model: Animal) {
-        self.textLabel?.text = model.name
+        self.animalName?.text = model.name
     }
     
     @IBAction func didTap(_ sender: Any) {

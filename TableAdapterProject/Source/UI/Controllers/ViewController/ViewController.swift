@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     private func handle(animalEvents: AnimalTableViewCellEvents) {
         switch animalEvents {
         case .buttonDidTapped:
-            break
+            print("buttonDidTapped")
         }
     }
 }
