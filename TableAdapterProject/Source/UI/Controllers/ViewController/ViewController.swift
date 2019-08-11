@@ -33,9 +33,16 @@ class ViewController: UIViewController {
     //MARK: Private
     
     private func sections() -> [Section] {
+        let yellowView = UIView()
+        yellowView.backgroundColor = .yellow
+        
+        let blueView = UIView()
+        blueView.backgroundColor = .blue
+        
         let firstSection = Section(
             cell: AnimalTableViewCell.self,
             models: [Animal(name: "Cow"), Animal(name: "Horse")],
+            sectionsImages: SectionImages(footer: .init(view: blueView, height: 20)),
             eventHandler: { [weak self] in self?.handle(animalEvents: $0) }
         )
         
@@ -43,6 +50,7 @@ class ViewController: UIViewController {
             cell: FruitTableViewCell.self,
             models: [Fruit(name: "Apple"), Fruit(name: "Peach")],
             isEditing: true,
+            sectionsImages: SectionImages(header: .init(view: yellowView, height: 20)),
             eventHandler: { [weak self] in self?.handle(fruitEvents: $0) }
         )
         

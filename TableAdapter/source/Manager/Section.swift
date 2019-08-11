@@ -17,6 +17,7 @@ public struct Section {
     var models: [Any]
     let eventHandler: (Any) -> ()
     let isEditing: Bool
+    let sectionsImages: SectionImages
     
     //MARK: -
     //MARK: Initializations
@@ -26,6 +27,7 @@ public struct Section {
         cell: Cell.Type,
         models: [Model],
         isEditing: Bool = false,
+        sectionsImages: SectionImages = SectionImages(),
         eventHandler: @escaping F.Handler<EventsType>
     )
         where Cell: BaseCell<Model, EventsType>
@@ -33,6 +35,7 @@ public struct Section {
         self.cell = cell
         self.models = models
         self.isEditing = isEditing
+        self.sectionsImages = sectionsImages
         self.eventHandler = {
             if let event = $0 as? EventsType {
                 eventHandler(event)

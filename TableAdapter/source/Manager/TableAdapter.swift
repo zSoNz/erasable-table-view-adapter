@@ -84,6 +84,22 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.sections[section].sectionsImages.header?.view
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.sections[section].sectionsImages.header?.height ?? 0
+    }
+    
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return self.sections[section].sectionsImages.footer?.view
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return self.sections[section].sectionsImages.footer?.height ?? 0
+    }
+    
     // MARK: - UIScrollViewDelegate
     
     public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

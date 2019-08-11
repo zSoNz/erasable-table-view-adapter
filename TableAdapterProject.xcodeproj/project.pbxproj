@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DF4920C23001D49001CA808 /* SectionImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4920B23001D49001CA808 /* SectionImages.swift */; };
 		9673FED022FAF1280096EFB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673FECF22FAF1280096EFB8 /* AppDelegate.swift */; };
 		9673FED222FAF1280096EFB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9673FED122FAF1280096EFB8 /* ViewController.swift */; };
 		9673FED522FAF1280096EFB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9673FED322FAF1280096EFB8 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4DF4920B23001D49001CA808 /* SectionImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionImages.swift; sourceTree = "<group>"; };
 		9673FECC22FAF1280096EFB8 /* TableAdapterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableAdapterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9673FECF22FAF1280096EFB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9673FED122FAF1280096EFB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DF4920A23001D0C001CA808 /* SectionImage */ = {
+			isa = PBXGroup;
+			children = (
+				4DF4920B23001D49001CA808 /* SectionImages.swift */,
+			);
+			path = SectionImage;
+			sourceTree = "<group>";
+		};
 		9673FEC322FAF1280096EFB8 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 				9673FEEC22FB202D0096EFB8 /* TableAdapter.swift */,
 				9673FF0822FB24C40096EFB8 /* Section.swift */,
 				9673FF0A22FB24FA0096EFB8 /* BaseCell.swift */,
+				4DF4920A23001D0C001CA808 /* SectionImage */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -322,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9673FEC722FAF1280096EFB8 /* Build configuration list for PBXProject "TableAdapter" */;
+			buildConfigurationList = 9673FEC722FAF1280096EFB8 /* Build configuration list for PBXProject "TableAdapterProject" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -387,6 +398,7 @@
 				9673FF0922FB24C40096EFB8 /* Section.swift in Sources */,
 				9673FF0222FB22CA0096EFB8 /* TableAdapter.swift in Sources */,
 				9673FF0622FB23900096EFB8 /* UITableView+Extensions.swift in Sources */,
+				4DF4920C23001D49001CA808 /* SectionImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +643,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9673FEC722FAF1280096EFB8 /* Build configuration list for PBXProject "TableAdapter" */ = {
+		9673FEC722FAF1280096EFB8 /* Build configuration list for PBXProject "TableAdapterProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9673FEDC22FAF12A0096EFB8 /* Debug */,
