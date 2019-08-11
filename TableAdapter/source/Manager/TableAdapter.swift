@@ -86,6 +86,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
     
     // MARK: - UIScrollViewDelegate
     
+    public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return self.sections[indexPath.section].isEditing
+    }
+    
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>)

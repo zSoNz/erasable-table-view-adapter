@@ -42,6 +42,7 @@ class ViewController: UIViewController {
         let secondSection = Section(
             cell: FruitTableViewCell.self,
             models: [Fruit(name: "Apple"), Fruit(name: "Peach")],
+            isEditing: true,
             eventHandler: { [weak self] in self?.handle(fruitEvents: $0) }
         )
         

@@ -16,16 +16,23 @@ public struct Section {
     let cell: AnyCellType.Type
     var models: [Any]
     let eventHandler: (Any) -> ()
+    let isEditing: Bool
     
     //MARK: -
     //MARK: Initializations
     
     //TO-DO: Wrap event handler into WeakBox
-    public init<Cell, Model, EventsType>(cell: Cell.Type, models: [Model], eventHandler: @escaping F.Handler<EventsType>)
+    public init<Cell, Model, EventsType>(
+        cell: Cell.Type,
+        models: [Model],
+        isEditing: Bool = false,
+        eventHandler: @escaping F.Handler<EventsType>
+    )
         where Cell: BaseCell<Model, EventsType>
     {
         self.cell = cell
         self.models = models
+        self.isEditing = isEditing
         self.eventHandler = {
             if let event = $0 as? EventsType {
                 eventHandler(event)
