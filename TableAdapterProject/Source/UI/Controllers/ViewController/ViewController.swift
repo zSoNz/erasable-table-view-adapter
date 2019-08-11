@@ -20,7 +20,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.adapter = TableAdapter(table: self.table, cells: [AnimalTableViewCell.self, FruitTableViewCell.self])
+        self.adapter = TableAdapter(
+            table: self.table,
+            cells: [AnimalTableViewCell.self, FruitTableViewCell.self, EmptyTableViewCell.self]
+        )
         
         self.adapter?.eventHandler = { [weak self] in
             self?.handle(tableEvents: $0)
@@ -54,7 +57,13 @@ class ViewController: UIViewController {
             eventHandler: { [weak self] in self?.handle(fruitEvents: $0) }
         )
         
-        return [firstSection, secondSection]
+        let thirdSection = Section(
+            cell: EmptyTableViewCell.self,
+            count: 3,
+            eventHandler: { self.handle(emptyEvents: $0) }
+        )
+        
+        return [firstSection, secondSection, thirdSection]
     }
     
     //MARK: -
@@ -72,6 +81,10 @@ class ViewController: UIViewController {
     }
     
     private func handle(fruitEvents: FruitTableViewCellEvents) {
+        
+    }
+    
+    private func handle(emptyEvents: EmptyBaseCellEvents) {
         
     }
     

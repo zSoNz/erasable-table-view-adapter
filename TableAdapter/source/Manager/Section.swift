@@ -21,8 +21,7 @@ public struct Section {
     
     //MARK: -
     //MARK: Initializations
-    
-    //TO-DO: Wrap event handler into WeakBox
+        
     public init<Cell, Model, EventsType>(
         cell: Cell.Type,
         models: [Model],
@@ -34,6 +33,26 @@ public struct Section {
     {
         self.cell = cell
         self.models = models
+        self.isEditing = isEditing
+        self.sectionsImages = sectionsImages
+        self.eventHandler = {
+            if let event = $0 as? EventsType {
+                eventHandler(event)
+            }
+        }
+    }
+    
+    public init<Cell, EventsType>(
+        cell: Cell.Type,
+        count: Int,
+        isEditing: Bool = false,
+        sectionsImages: SectionImages = SectionImages(),
+        eventHandler: @escaping F.Handler<EventsType>
+    )
+        where Cell: EmptyBaseCell<EventsType>
+    {
+        self.cell = cell
+        self.models = .init(repeating: count, count: count)
         self.isEditing = isEditing
         self.sectionsImages = sectionsImages
         self.eventHandler = {

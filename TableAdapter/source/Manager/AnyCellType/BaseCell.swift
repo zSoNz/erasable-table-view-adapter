@@ -2,16 +2,11 @@
 //  BaseCell.swift
 //  TableAdapter
 //
-//  Created by IDAP Developer on 8/7/19.
+//  Created by Bogdan Kikacheishvili on 8/11/19.
 //  Copyright © 2019 Bendis. All rights reserved.
 //
 
 import UIKit
-
-protocol AnyCellType: UITableViewCell {
-    
-    func fill(with model: Any, eventHandler: @escaping F.Handler<Any>)
-}
 
 open class BaseCell<Model, Events>: UITableViewCell, AnyCellType {
     
@@ -19,6 +14,14 @@ open class BaseCell<Model, Events>: UITableViewCell, AnyCellType {
     //MARK: Accesors
     
     public var eventHandler: F.Handler<Events>?
+    
+    // MARK: -
+    // MARK: Cell Life Cycle
+
+    open override func prepareForReuse() {
+        self.eventHandler = nil
+        super.prepareForReuse()
+    }
     
     //MARK: -
     //MARK: AnyCellType

@@ -25,11 +25,11 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
             self.table?.reloadData()
         }
     }
-    //TO-DO: Move to the protocol EventHandable, and make it with WeakBox
+    
     public var eventHandler: F.Handler<TableViewEvents>?
     
-    private weak var table: UITableView?
     private var isEndDragging: Bool = true
+    private weak var table: UITableView?
     
     //MARK: -
     //MARK: Initializations
