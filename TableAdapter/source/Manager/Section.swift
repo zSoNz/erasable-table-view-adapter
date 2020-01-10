@@ -17,7 +17,7 @@ public struct Section {
     var models: [Any]
     let eventHandler: (Any) -> ()
     let isEditing: Bool
-    let sectionsImages: SectionImages
+    let sectionDelimetrs: SectionDelimetrs
     
     //MARK: -
     //MARK: Initializations
@@ -26,15 +26,15 @@ public struct Section {
         cell: Cell.Type,
         models: [Model],
         isEditing: Bool = false,
-        sectionsImages: SectionImages = SectionImages(),
-        eventHandler: @escaping F.Handler<EventsType>
+        sectionsImages: SectionDelimetrs = SectionDelimetrs(),
+        eventHandler: @escaping F.Handler<EventsType> = { _ in }
     )
         where Cell: BaseCell<Model, EventsType>
     {
         self.cell = cell
         self.models = models
         self.isEditing = isEditing
-        self.sectionsImages = sectionsImages
+        self.sectionDelimetrs = sectionsImages
         self.eventHandler = {
             if let event = $0 as? EventsType {
                 eventHandler(event)
@@ -46,15 +46,15 @@ public struct Section {
         cell: Cell.Type,
         count: Int,
         isEditing: Bool = false,
-        sectionsImages: SectionImages = SectionImages(),
-        eventHandler: @escaping F.Handler<EventsType>
+        sectionDelimetrs: SectionDelimetrs = SectionDelimetrs(),
+        eventHandler: @escaping F.Handler<EventsType> = { _ in }
     )
         where Cell: EmptyBaseCell<EventsType>
     {
         self.cell = cell
         self.models = .init(repeating: count, count: count)
         self.isEditing = isEditing
-        self.sectionsImages = sectionsImages
+        self.sectionDelimetrs = sectionDelimetrs
         self.eventHandler = {
             if let event = $0 as? EventsType {
                 eventHandler(event)

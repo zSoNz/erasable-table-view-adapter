@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DF4920C23001D49001CA808 /* SectionImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4920B23001D49001CA808 /* SectionImages.swift */; };
+		4DF4920C23001D49001CA808 /* SectionDelimetrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4920B23001D49001CA808 /* SectionDelimetrs.swift */; };
 		4DF4920F23002414001CA808 /* AnyCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4920E23002414001CA808 /* AnyCellType.swift */; };
 		4DF492112300241D001CA808 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF492102300241D001CA808 /* BaseCell.swift */; };
 		4DF49213230024EE001CA808 /* EmptyBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF49212230024EE001CA808 /* EmptyBaseCell.swift */; };
@@ -59,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4DF4920B23001D49001CA808 /* SectionImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionImages.swift; sourceTree = "<group>"; };
+		4DF4920B23001D49001CA808 /* SectionDelimetrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDelimetrs.swift; sourceTree = "<group>"; };
 		4DF4920E23002414001CA808 /* AnyCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCellType.swift; sourceTree = "<group>"; };
 		4DF492102300241D001CA808 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		4DF49212230024EE001CA808 /* EmptyBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyBaseCell.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		4DF4920A23001D0C001CA808 /* SectionImage */ = {
 			isa = PBXGroup;
 			children = (
-				4DF4920B23001D49001CA808 /* SectionImages.swift */,
+				4DF4920B23001D49001CA808 /* SectionDelimetrs.swift */,
 			);
 			path = SectionImage;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				4DF492112300241D001CA808 /* BaseCell.swift in Sources */,
 				9673FF0222FB22CA0096EFB8 /* TableAdapter.swift in Sources */,
 				9673FF0622FB23900096EFB8 /* UITableView+Extensions.swift in Sources */,
-				4DF4920C23001D49001CA808 /* SectionImages.swift in Sources */,
+				4DF4920C23001D49001CA808 /* SectionDelimetrs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

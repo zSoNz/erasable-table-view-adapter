@@ -1,5 +1,5 @@
 //
-//  SectionImages.swift
+//  SectionDelimetrs.swift
 //  TableAdapter
 //
 //  Created by Bogdan Kikacheishvili on 8/11/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct SectionImage {
+public struct SectionDelimetr {
     
     public let view: UIView?
     public let height: CGFloat
@@ -19,12 +19,12 @@ public struct SectionImage {
     }
 }
 
-public struct SectionImages {
+public struct SectionDelimetrs {
     
-    public let header: SectionImage?
-    public let footer: SectionImage?
+    public let header: SectionDelimetr?
+    public let footer: SectionDelimetr?
     
-    public init(header: SectionImage? = nil, footer: SectionImage? = nil) {
+    public init(header: SectionDelimetr? = nil, footer: SectionDelimetr? = nil) {
         self.header = header
         self.footer = footer
     }

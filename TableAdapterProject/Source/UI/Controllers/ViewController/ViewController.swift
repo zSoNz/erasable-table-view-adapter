@@ -15,7 +15,16 @@ class ViewController: UIViewController {
     
     @IBOutlet var table: UITableView?
     
+    //MARK: -
+    //MARK: Variables
+    
     var adapter: TableAdapter?
+    
+    private let animals = [Animal(name: "Cow"), Animal(name: "Horse")]
+    private let fruits = [Fruit(name: "Apple"), Fruit(name: "Peach")]
+    
+    //MARK: -
+    //MARK: View Life Cylce
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,23 +53,21 @@ class ViewController: UIViewController {
         
         let firstSection = Section(
             cell: AnimalTableViewCell.self,
-            models: [Animal(name: "Cow"), Animal(name: "Horse")],
-            sectionsImages: SectionImages(footer: .init(view: blueView, height: 20)),
+            models: self.animals,
+            sectionsImages: SectionDelimetrs(footer: .init(view: blueView, height: 20)),
             eventHandler: { [weak self] in self?.handle(animalEvents: $0) }
         )
         
         let secondSection = Section(
             cell: FruitTableViewCell.self,
-            models: [Fruit(name: "Apple"), Fruit(name: "Peach")],
+            models: self.fruits,
             isEditing: true,
-            sectionsImages: SectionImages(header: .init(view: yellowView, height: 20)),
-            eventHandler: { [weak self] in self?.handle(fruitEvents: $0) }
+            sectionsImages: SectionDelimetrs(header: .init(view: yellowView, height: 20))
         )
         
         let thirdSection = Section(
             cell: EmptyTableViewCell.self,
-            count: 3,
-            eventHandler: { [weak self] in self?.handle(emptyEvents: $0) }
+            count: 3
         )
         
         return [firstSection, secondSection, thirdSection]
@@ -72,26 +79,24 @@ class ViewController: UIViewController {
     private func handle(tableEvents: TableViewEvents) {
         switch tableEvents {
         case let .didSelect(indexPath):
-            print(indexPath)
+            if indexPath.section == 0 {
+                print("Selected animal is \(self.animals[indexPath.row])")
+            } else if indexPath.section == 1 {
+                print("Selected fruit is \(self.fruits[indexPath.row])")
+            }
         case .didRemove(_):
             break
         case .loadNext:
             break
+        case .didReloadData:
+            break
         }
-    }
-    
-    private func handle(fruitEvents: FruitTableViewCellEvents) {
-        
-    }
-    
-    private func handle(emptyEvents: EmptyBaseCellEvents) {
-        
     }
     
     private func handle(animalEvents: AnimalTableViewCellEvents) {
         switch animalEvents {
         case .buttonDidTapped:
-            print("buttonDidTapped")
+            print("Button on animal section did taped")
         }
     }
 }

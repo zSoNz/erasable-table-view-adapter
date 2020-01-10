@@ -10,6 +10,7 @@ import UIKit
 
 public enum TableViewEvents {
     
+    case didReloadData
     case didSelect(IndexPath)
     case didRemove(IndexPath)
     case loadNext
@@ -23,6 +24,13 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
     public var sections = [Section]() {
         didSet {
             self.table?.reloadData()
+            UIView.animate(
+                withDuration: 0.0,
+                delay: 0,
+                options: [.overrideInheritedOptions],
+                animations: { self.table?.reloadData() },
+                completion: { _ in self.eventHandler?(.didReloadData) }
+            )
         }
     }
     
@@ -85,19 +93,19 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.sections[section].sectionsImages.header?.view
+        return self.sections[section].sectionDelimetrs.header?.view
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return self.sections[section].sectionsImages.header?.height ?? 0
+        return self.sections[section].sectionDelimetrs.header?.height ?? 0
     }
     
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return self.sections[section].sectionsImages.footer?.view
+        return self.sections[section].sectionDelimetrs.footer?.view
     }
     
     public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return self.sections[section].sectionsImages.footer?.height ?? 0
+        return self.sections[section].sectionDelimetrs.footer?.height ?? 0
     }
     
     // MARK: - UIScrollViewDelegate
