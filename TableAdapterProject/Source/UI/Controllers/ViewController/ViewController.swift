@@ -29,15 +29,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Creating instance of adapter
         self.adapter = TableAdapter(
             table: self.table,
             cells: [AnimalTableViewCell.self, FruitTableViewCell.self, EmptyTableViewCell.self]
         )
         
+        // Adding handling of UITableView events, like "reloadData" or "didSelectRow"
         self.adapter?.eventHandler = { [weak self] in
             self?.handle(tableEvents: $0)
         }
         
+        // Adding wrapers of models in sections
         self.adapter?.sections = self.sections()
     }
     
@@ -45,6 +48,7 @@ class ViewController: UIViewController {
     //MARK: Private
     
     private func sections() -> [Section] {
+        // Views for footer and header sections creation
         let yellowView = UIView()
         yellowView.backgroundColor = .yellow
         
@@ -54,7 +58,7 @@ class ViewController: UIViewController {
         let firstSection = Section(
             cell: AnimalTableViewCell.self,
             models: self.animals,
-            sectionsImages: SectionDelimetrs(footer: .init(view: blueView, height: 20)),
+            sectionDelimetrs: SectionDelimetrs(footer: .init(view: blueView, height: 20)),
             eventHandler: { [weak self] in self?.handle(animalEvents: $0) }
         )
         
@@ -62,7 +66,7 @@ class ViewController: UIViewController {
             cell: FruitTableViewCell.self,
             models: self.fruits,
             isEditing: true,
-            sectionsImages: SectionDelimetrs(header: .init(view: yellowView, height: 20))
+            sectionDelimetrs: SectionDelimetrs(header: .init(view: yellowView, height: 20))
         )
         
         let thirdSection = Section(

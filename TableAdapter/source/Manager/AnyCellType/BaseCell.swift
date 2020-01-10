@@ -8,6 +8,9 @@
 
 import UIKit
 
+/*
+ Open class for cells with model whats be applied in section initialization.
+ */
 open class BaseCell<Model, Events>: UITableViewCell, AnyCellType {
     
     //MARK: -
@@ -34,7 +37,10 @@ open class BaseCell<Model, Events>: UITableViewCell, AnyCellType {
             }
         }
     }
-    
+
+    /*
+     Open func for outlets filling, redefine it in your cell.
+     */
     open func fill(with model: Model) {
         fatalError("Abstract method used for child classes")
     }

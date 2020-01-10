@@ -21,12 +21,21 @@ public struct Section {
     
     //MARK: -
     //MARK: Initializations
-        
+    
+    /*
+     Initializator for section what contains cells with models.
+     
+     @param cell Type of cell what be displayed in this section
+     @param models Array of models for section
+     @param isEditing If this param setted to true, this section will be editable for user. Default 'false'
+     @param sectionsImages Define this field for dispalay header or footer of section. Default value with nilled values.
+     @param eventHandler Closure for handling of custom UITableViewCell events
+     */
     public init<Cell, Model, EventsType>(
         cell: Cell.Type,
         models: [Model],
         isEditing: Bool = false,
-        sectionsImages: SectionDelimetrs = SectionDelimetrs(),
+        sectionDelimetrs: SectionDelimetrs = SectionDelimetrs(),
         eventHandler: @escaping F.Handler<EventsType> = { _ in }
     )
         where Cell: BaseCell<Model, EventsType>
@@ -34,7 +43,7 @@ public struct Section {
         self.cell = cell
         self.models = models
         self.isEditing = isEditing
-        self.sectionDelimetrs = sectionsImages
+        self.sectionDelimetrs = sectionDelimetrs
         self.eventHandler = {
             if let event = $0 as? EventsType {
                 eventHandler(event)
@@ -42,6 +51,15 @@ public struct Section {
         }
     }
     
+    /*
+     Initializator for section what contains cells without models.
+     
+     @param cell Type of cell what be displayed in this section
+     @param count Count of cells should be displayed.
+     @param isEditing If this param setted to true, this section will be editable for user. Default 'false'
+     @param sectionDelimetrs Define this field for dispalay header or footer of section. Default value with nilled values.
+     @param eventHandler Closure for handling of custom UITableViewCell events
+     */
     public init<Cell, EventsType>(
         cell: Cell.Type,
         count: Int,

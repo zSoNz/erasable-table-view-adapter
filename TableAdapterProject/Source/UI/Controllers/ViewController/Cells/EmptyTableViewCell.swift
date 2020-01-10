@@ -16,5 +16,4 @@ enum EmptyBaseCellEvents {
 
 class EmptyTableViewCell: EmptyBaseCell<EmptyBaseCellEvents> {
 
-    
 }
