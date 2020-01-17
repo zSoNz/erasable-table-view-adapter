@@ -8,8 +8,8 @@
 
 import UIKit
 
-/*
- Open class for cells with model whats be applied in section initialization.
+/**
+ BaseCell is a open class for cells with model whats be applied in section initialization.
  */
 open class BaseCell<Model, Events>: UITableViewCell, AnyCellType {
     

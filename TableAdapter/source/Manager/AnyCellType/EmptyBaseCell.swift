@@ -8,8 +8,8 @@
 
 import UIKit
 
-/*
- Open class for cells witout model whats be applied in section initialization.
+/**
+ EmptyBaseCell is a open class for cells witout model whats be applied in section initialization.
  */
 open class EmptyBaseCell<Events>: UITableViewCell, AnyCellType {
     

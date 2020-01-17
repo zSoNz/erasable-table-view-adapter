@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ SectionDelimetr wrapper for header or footer section
+ */
 public struct SectionDelimetr {
     
     public let view: UIView?
@@ -19,6 +22,9 @@ public struct SectionDelimetr {
     }
 }
 
+/**
+ SectionDelimetrs for header and footer views, put your view in accesors and it will display accordingly
+ */
 public struct SectionDelimetrs {
     
     public let header: SectionDelimetr?

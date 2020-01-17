@@ -8,19 +8,26 @@
 
 import UIKit
 
+/**
+ TableViewEvents default table event wrapper in enum.
+*/
 public enum TableViewEvents {
     
-    case didReloadData
-    case didSelect(IndexPath)
-    case didRemove(IndexPath)
-    case loadNext
+    case didReloadData /// Called after table reload own data.
+    case didSelect(IndexPath) /// Called after user tap on row.
+    case didRemove(IndexPath) /// Called after user remove row.
+    case loadNext /// Created for pagination, called when user receives bottom of table view.
 }
 
+/**
+ TableAdapter wrapper for UITableView class, represent default table delegate functions in more comfortable way.
+*/
 public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
     //MARK: -
     //MARK: Accesors
     
+    /// Sections will be equal with count of section in table, all rows inside section model be equal of count rows in section.
     public var sections = [Section]() {
         didSet {
             self.table?.reloadData()
@@ -34,6 +41,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
+    /// Closure for handling default table events, like  "reloadData" or "didSelectRow".
     public var eventHandler: F.Handler<TableViewEvents>?
     
     private var isEndDragging: Bool = true
@@ -42,6 +50,12 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
     //MARK: -
     //MARK: Initializations
     
+    /**
+        Initializator for Table Adapter.
+        
+        @param table TableView what be wrapped.
+        @param models Array of cells type, what be registered for dequeReusableCell func.
+    */
     public init(table: UITableView?, cells: [UITableViewCell.Type]) {
         self.table = table
         
